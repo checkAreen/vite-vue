@@ -1,0 +1,153 @@
+@import './assets/scss/mixins.scss';
+@import './assets/scss/variables.scss';
+
+:root{
+  @each $spacer, $value in $spacers{
+    --theme-spacer-#{$spacer}: #{$value};
+  }
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.title{
+  font-family: $jost;
+  font-weight: 700;
+  color: $primary-color;
+  text-transform: capitalize;
+  &-h1{
+    @extend .title;
+    @include responsive-size('font-size', 'px', 70, 27);
+  }
+  &-h2{
+    @extend .title;
+    @include responsive-size('font-size', 'px', 39.6, 24);
+  }
+  &-h3{
+    @extend .title;
+    @include responsive-size('font-size', 'px', 35, 20);
+  }
+  &-h4{
+    @extend .title;
+    @include responsive-size('font-size', 'px', 30, 20);
+  }
+  &-h5{
+    @extend .title;
+    font-size: 1.5rem;
+  }
+  &-h6{
+    @extend .title;
+    @include responsive-size('font-size', 'px', 25, 18);
+  }
+}
+.paragraph{
+  color: $content-color;
+  font-family: $open-sans;
+  font-weight: 400;
+  text-transform: capitalize;
+  @include responsive-size('font-size', 'px', 18, 14);
+}
+.social{
+  cursor: pointer;
+  color: $primary-color;
+  transition: color .3s linear;
+  &:hover{
+    color: $secondary-color;
+  }
+}
+.label{
+  display: inline-block;
+  color: #7D5FFF;
+  background: #E5DFF4;
+  font-family: $inter;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 100px;
+  padding: 4px 17px;
+  text-align: center;
+}
+.subinfo{
+  border-top: 2px dotted #CCCCCC;
+  color: $primary-color;
+  @include responsive-size('font-size', 'px', 20, 16);
+  &-date + div{
+    display: block;
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background: $secondary-color;
+    border-radius: 50%;
+  }
+}
+.blockquote{
+  &-block{
+    @include responsive-size('padding', 'rem', 3.3, 3.5, 1.5, 1.5);
+    background-color: $grey-bg-color;
+    position: relative;
+
+    &::before{
+      display: block;
+      content: "";
+      background-color: $secondary-color;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      @include responsive-size('width', 'rem', 1.7, 0.8);
+      height: 100%;
+    }
+  }
+  &-text{
+    color: $content-color;
+    font-family: $open-sans;
+    font-weight: 400;
+    @include responsive-size('font-size', 'rem', 1.4, 0.8);
+    @include responsive-size('line-height', 'rem', 2.2, 1.2)
+  }
+}
+.btn{
+  font-family: $inter;
+  @include responsive-size('font-size', 'px', 18, 14);
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 72px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow .2s linear;
+  &-blue{
+    @extend .btn;
+    background-color: $primary-color;
+    color: #fff;
+    @include responsive-size('padding', 'px', 25.2, 68.4, 15, 17);
+    &:hover{
+      @extend .btn-blue;
+      box-shadow: 3px 3px 3px $content-color;
+    }
+    &-huge{
+      @extend .btn-blue;
+      @include responsive-size('padding', 'px', 25.2, 93.6, 15, 24);
+      &:hover{
+        @extend .btn-blue-huge;
+        box-shadow: 3px 3px 3px $content-color;
+      }
+    }
+  }
+  &-grey{
+    @extend .btn;
+    background-color: rgba(215, 215, 215, 1);
+    color: $primary-color;
+    @include responsive-size('padding', 'px', 25.2, 68.4, 15, 17);
+    &-huge{
+      @extend .btn-grey;
+      @include responsive-size('padding', 'px', 25.2, 93.6, 15, 24);
+      &:hover{
+        @extend .btn-grey-huge;
+        box-shadow: 1px 1px 5px $content-color;
+      }
+    }
+    &:hover{
+      box-shadow: 1px 1px 5px $content-color;
+    }
+  }
+}

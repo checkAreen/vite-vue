@@ -1,0 +1,26 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+
+$maxTempWidth: 1920;
+// spacing
+$custom-spacers: (
+  6: $spacer * 6,
+  7: $spacer * 8.5,
+  8: $spacer * 11,
+  9: $spacer * 14,
+  10: $spacer * 19,
+  11: $spacer * 25
+);
+$spacers: map-merge($spacers , $custom-spacers );
+// fonts
+$jost: 'Jost', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+$inter: 'Inter', sans-serif;
+// color
+$primary-color:#231656;
+$secondary-color: #625FFB;
+$content-color: #4E4E4E;
+$bg-color: #F5F5F5;
+$grey-bg-color: #F8F8F8;
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';

@@ -1,0 +1,32 @@
+@mixin responsive-size($type, $measureSys, $values...){
+  // define variables for old and new values
+  $oldVal:();
+  $newVal:();
+  $resultMaxWidth:();
+  $resultMinWidth:();
+  // separate values to old and new
+  @for $i from 1 to length($values) + 1{
+    @if($i > calc(length($values) / 2)){
+      $newVal: append($newVal, nth(($values), $i));
+    } @else {
+      $oldVal: append($oldVal, nth(($values), $i));
+    }
+  }
+  // calculate responsive CSS values
+  @for $i from 1 to length($oldVal) + 1{
+    $diffVal: nth(($oldVal), $i) - nth(($newVal), $i);
+    $mobSize: $diffVal + $diffVal * 0.7;
+
+    $maxWidth: 'calc(#{nth(($newVal), $i) + #{$measureSys}} + #{$mobSize} * ((100vw - 320px) / #{$maxTempWidth}))';
+    $minWidth: 'calc(#{nth(($newVal), $i) + #{$measureSys}} + #{$diffVal} * (100vw / #{$maxTempWidth}))';
+
+    $resultMaxWidth: append($resultMaxWidth, $maxWidth);
+    $resultMinWidth: append($resultMinWidth, $minWidth);
+  }
+  @media (max-width: 767px){
+    #{$type}: #{$resultMaxWidth};
+  }
+  @media (min-width: 767px){
+    #{$type}: #{$resultMinWidth};
+  }
+}
