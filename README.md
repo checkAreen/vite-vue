@@ -1,4 +1,4 @@
-** Vite + VueJS 3 (Composition API) **
+# **Vite + VueJS 3 (Composition API)**
 
 Finally, I've built my first SPA on Vue. This is my first experience of using JS frameworks.
 In this project I've been using Vite, Vue 3 (Composition API), Vue Router, Pinia and Bootstrap with SCSS.
